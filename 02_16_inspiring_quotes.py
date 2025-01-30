@@ -16,3 +16,16 @@ famous_quotes = [
     {"full_name": "Nathan Myhrvold", "quote": "Software is a gas; it expands to fill its container."},
     {"full_name": "Alan Bennett", "quote": "Standards are always out of date.  That’s what makes them standards."}
 ]
+
+## Approach using f strings
+for item in famous_quotes:
+    print(f"{item['quote']} - {item["full_name"].split(" ")[-1]} , {item["full_name"].split(" ")[0]}")
+
+
+## Alternative approach - use nested loops
+for pair in famous_quotes:
+    for key, value in reversed(pair.items()): # Use reversed method to iterate backwards
+        if key == "quote":
+            print(value, end = " - ")
+        elif key == "full_name":
+            print(value.split(" ")[-1] + ", " + value.split(" ")[0])
